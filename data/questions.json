@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "topic": "Besaran, Satuan dan Pengukuran",
+    "question_html": "<p><strong>Topik:</strong> Besaran, Satuan dan Pengukuran</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 1. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 2,
+    "topic": "Zat dan Kalor",
+    "question_html": "<p><strong>Topik:</strong> Zat dan Kalor</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 2. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 3,
+    "topic": "Energi",
+    "question_html": "<p><strong>Topik:</strong> Energi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 3. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 4,
+    "topic": "Gerak dan Gaya",
+    "question_html": "<p><strong>Topik:</strong> Gerak dan Gaya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 4. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 5,
+    "topic": "Fluida",
+    "question_html": "<p><strong>Topik:</strong> Fluida</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 5. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 6,
+    "topic": "Getaran, Gelombang, dan Bunyi",
+    "question_html": "<p><strong>Topik:</strong> Getaran, Gelombang, dan Bunyi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 6. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 7,
+    "topic": "Cahaya dan Optika",
+    "question_html": "<p><strong>Topik:</strong> Cahaya dan Optika</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 7. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 8,
+    "topic": "Kelistrikan dan Kemagnetan",
+    "question_html": "<p><strong>Topik:</strong> Kelistrikan dan Kemagnetan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 8. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 9,
+    "topic": "IPBA",
+    "question_html": "<p><strong>Topik:</strong> IPBA</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 9. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 10,
+    "topic": "Makhluk Hidup dan Lingkungannya",
+    "question_html": "<p><strong>Topik:</strong> Makhluk Hidup dan Lingkungannya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 10. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 11,
+    "topic": "Keanekaragaman dan Pengelompokan Makhluk Hidup",
+    "question_html": "<p><strong>Topik:</strong> Keanekaragaman dan Pengelompokan Makhluk Hidup</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 11. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 12,
+    "topic": "Organisasi Kehidupan",
+    "question_html": "<p><strong>Topik:</strong> Organisasi Kehidupan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 12. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "A"
+  },
+  {
+    "id": 13,
+    "topic": "Ekologi",
+    "question_html": "<p><strong>Topik:</strong> Ekologi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 13. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 14,
+    "topic": "Struktur dan Fungsi Tumbuhan",
+    "question_html": "<p><strong>Topik:</strong> Struktur dan Fungsi Tumbuhan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 14. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 15,
+    "topic": "Sistem pada Manusia dan Hewan",
+    "question_html": "<p><strong>Topik:</strong> Sistem pada Manusia dan Hewan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 15. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 16,
+    "topic": "Pewarisan Sifat",
+    "question_html": "<p><strong>Topik:</strong> Pewarisan Sifat</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 16. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 17,
+    "topic": "Bioteknologi",
+    "question_html": "<p><strong>Topik:</strong> Bioteknologi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 17. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 18,
+    "topic": "Besaran, Satuan dan Pengukuran",
+    "question_html": "<p><strong>Topik:</strong> Besaran, Satuan dan Pengukuran</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 18. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 19,
+    "topic": "Zat dan Kalor",
+    "question_html": "<p><strong>Topik:</strong> Zat dan Kalor</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 19. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 20,
+    "topic": "Energi",
+    "question_html": "<p><strong>Topik:</strong> Energi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 20. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 21,
+    "topic": "Gerak dan Gaya",
+    "question_html": "<p><strong>Topik:</strong> Gerak dan Gaya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 21. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 22,
+    "topic": "Fluida",
+    "question_html": "<p><strong>Topik:</strong> Fluida</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 22. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 23,
+    "topic": "Getaran, Gelombang, dan Bunyi",
+    "question_html": "<p><strong>Topik:</strong> Getaran, Gelombang, dan Bunyi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 23. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 24,
+    "topic": "Cahaya dan Optika",
+    "question_html": "<p><strong>Topik:</strong> Cahaya dan Optika</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 24. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 25,
+    "topic": "Kelistrikan dan Kemagnetan",
+    "question_html": "<p><strong>Topik:</strong> Kelistrikan dan Kemagnetan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 25. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "B"
+  },
+  {
+    "id": 26,
+    "topic": "IPBA",
+    "question_html": "<p><strong>Topik:</strong> IPBA</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 26. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 27,
+    "topic": "Makhluk Hidup dan Lingkungannya",
+    "question_html": "<p><strong>Topik:</strong> Makhluk Hidup dan Lingkungannya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 27. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 28,
+    "topic": "Keanekaragaman dan Pengelompokan Makhluk Hidup",
+    "question_html": "<p><strong>Topik:</strong> Keanekaragaman dan Pengelompokan Makhluk Hidup</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 28. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 29,
+    "topic": "Organisasi Kehidupan",
+    "question_html": "<p><strong>Topik:</strong> Organisasi Kehidupan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 29. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 30,
+    "topic": "Ekologi",
+    "question_html": "<p><strong>Topik:</strong> Ekologi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 30. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 31,
+    "topic": "Struktur dan Fungsi Tumbuhan",
+    "question_html": "<p><strong>Topik:</strong> Struktur dan Fungsi Tumbuhan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 31. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 32,
+    "topic": "Sistem pada Manusia dan Hewan",
+    "question_html": "<p><strong>Topik:</strong> Sistem pada Manusia dan Hewan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 32. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 33,
+    "topic": "Pewarisan Sifat",
+    "question_html": "<p><strong>Topik:</strong> Pewarisan Sifat</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 33. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 34,
+    "topic": "Bioteknologi",
+    "question_html": "<p><strong>Topik:</strong> Bioteknologi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 34. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 35,
+    "topic": "Besaran, Satuan dan Pengukuran",
+    "question_html": "<p><strong>Topik:</strong> Besaran, Satuan dan Pengukuran</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 35. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 36,
+    "topic": "Zat dan Kalor",
+    "question_html": "<p><strong>Topik:</strong> Zat dan Kalor</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 36. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 37,
+    "topic": "Energi",
+    "question_html": "<p><strong>Topik:</strong> Energi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 37. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "C"
+  },
+  {
+    "id": 38,
+    "topic": "Gerak dan Gaya",
+    "question_html": "<p><strong>Topik:</strong> Gerak dan Gaya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 38. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 39,
+    "topic": "Fluida",
+    "question_html": "<p><strong>Topik:</strong> Fluida</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 39. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 40,
+    "topic": "Getaran, Gelombang, dan Bunyi",
+    "question_html": "<p><strong>Topik:</strong> Getaran, Gelombang, dan Bunyi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 40. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 41,
+    "topic": "Cahaya dan Optika",
+    "question_html": "<p><strong>Topik:</strong> Cahaya dan Optika</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 41. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 42,
+    "topic": "Kelistrikan dan Kemagnetan",
+    "question_html": "<p><strong>Topik:</strong> Kelistrikan dan Kemagnetan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 42. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 43,
+    "topic": "IPBA",
+    "question_html": "<p><strong>Topik:</strong> IPBA</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 43. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 44,
+    "topic": "Makhluk Hidup dan Lingkungannya",
+    "question_html": "<p><strong>Topik:</strong> Makhluk Hidup dan Lingkungannya</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 44. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 45,
+    "topic": "Keanekaragaman dan Pengelompokan Makhluk Hidup",
+    "question_html": "<p><strong>Topik:</strong> Keanekaragaman dan Pengelompokan Makhluk Hidup</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 45. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 46,
+    "topic": "Organisasi Kehidupan",
+    "question_html": "<p><strong>Topik:</strong> Organisasi Kehidupan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 46. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 47,
+    "topic": "Ekologi",
+    "question_html": "<p><strong>Topik:</strong> Ekologi</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 47. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 48,
+    "topic": "Struktur dan Fungsi Tumbuhan",
+    "question_html": "<p><strong>Topik:</strong> Struktur dan Fungsi Tumbuhan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 48. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><div class=\"bg-gray-200 p-4 text-center border\" style=\"margin:8px 0;\">[GAMBAR/GRAFIK ANALISIS SOAL]</div><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 49,
+    "topic": "Sistem pada Manusia dan Hewan",
+    "question_html": "<p><strong>Topik:</strong> Sistem pada Manusia dan Hewan</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 49. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  },
+  {
+    "id": 50,
+    "topic": "Pewarisan Sifat",
+    "question_html": "<p><strong>Topik:</strong> Pewarisan Sifat</p><p>Pada studi kasus OSN IPA, peserta diminta menganalisis data eksperimen nomor 50. Tentukan kesimpulan paling tepat berdasarkan prinsip ilmiah, evaluasi variabel kontrol, dan prediksi dampak perubahan parameter terhadap hasil akhir.</p><p>Pilih jawaban yang paling logis dan didukung data.</p>",
+    "options": {
+      "A": "Kesimpulan A: fokus pada hubungan sebab-akibat utama dan asumsi minimum.",
+      "B": "Kesimpulan B: mengutamakan validitas data, koreksi galat, dan konsistensi model.",
+      "C": "Kesimpulan C: menekankan interpretasi alternatif melalui pendekatan komparatif.",
+      "D": "Kesimpulan D: mengintegrasikan multi-konsep lintas topik untuk prediksi terbaik."
+    },
+    "answer_key": "D"
+  }
+]
