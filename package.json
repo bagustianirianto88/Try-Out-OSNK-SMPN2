@@ -1,11 +1,11 @@
 {
-  "name": "osn-ipa-cbt-anbk",
+  "name": "tryout-osn-ipa-smpn2",
   "version": "1.0.0",
-  "description": "Try Out OSN IPA SMP 2026 - CBT style ANBK",
+  "description": "CBT ANBK-style app for OSN IPA SMP 2026",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "generate:questions": "node scripts/generateQuestions.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "better-sqlite3": "^11.8.1",
@@ -13,5 +13,8 @@
     "express": "^4.21.2",
     "express-session": "^1.18.1",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
