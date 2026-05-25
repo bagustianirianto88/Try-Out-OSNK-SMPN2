@@ -1,0 +1,23 @@
+<!doctype html><html><head><title>Ujian CBT</title><link rel="stylesheet" href="/style.css"><script src="/socket.io/socket.io.js"></script></head><body>
+<div class="container">
+  <div class="header"><div>Peserta: <%= student.name %></div><div>Token: <span id="token"><%= token %></span></div><div class="timer" id="timer"></div></div>
+  <div class="layout"><div class="card"><div id="questionArea"></div><div id="optionsArea"></div><div class="footer"><button class="btn" onclick="prevQ()">Soal Sebelumnya</button><label><input type="checkbox" id="doubtBox" onchange="toggleDoubt()"> Ragu-ragu</label><button class="btn" id="nextBtn" onclick="nextQ()">Soal Selanjutnya</button></div></div>
+  <div class="card"><h4>Navigasi</h4><div class="nav-grid" id="navGrid"></div></div></div>
+</div>
+<script>
+const socket = io();
+const qs = <%- JSON.stringify(questions) %>;
+const state = <%- JSON.stringify(state) %>;
+let idx = state.currentQuestion - 1; let answers = state.answers || {}; let doubts = new Set(state.doubts || []); let remaining=state.remaining;
+function render(){const q=qs[idx];document.getElementById('questionArea').innerHTML=`<h3>Soal ${idx+1}</h3>${q.question_html}`;document.getElementById('optionsArea').innerHTML=['A','B','C','D'].map(k=>`<label><input type='radio' name='opt' ${answers[idx+1]===k?'checked':''} onchange="save('${k}')"> ${k}. ${q.options[k]}</label><br>`).join('');document.getElementById('doubtBox').checked=doubts.has(idx+1);document.getElementById('nextBtn').textContent=idx===49?'Selesai':'Soal Selanjutnya';renderNav();}
+function renderNav(){document.getElementById('navGrid').innerHTML=qs.map((_,i)=>`<button class='qbtn ${doubts.has(i+1)?'doubt':(answers[i+1]?'answered':'')}' onclick='go(${i})'>${i+1}</button>`).join('')}
+function go(i){idx=i;render();save();}
+function prevQ(){if(idx>0){idx--;render();save();}}
+function nextQ(){if(idx===49){finish();return;}idx++;render();save();}
+function toggleDoubt(){if(document.getElementById('doubtBox').checked) doubts.add(idx+1); else doubts.delete(idx+1); save(); renderNav();}
+function save(ans){if(ans) answers[idx+1]=ans;fetch('/api/save-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({questionNumber:idx+1,answer:ans,doubt:doubts.has(idx+1)})});}
+function finish(){fetch('/api/finish',{method:'POST'}).then(r=>r.json()).then(d=>location.href=d.redirect)}
+setInterval(()=>{remaining--;if(remaining<=0){finish()} const m=String(Math.floor(Math.max(remaining,0)/60)).padStart(2,'0'); const s=String(Math.max(remaining,0)%60).padStart(2,'0');document.getElementById('timer').textContent=`${m}:${s}`; socket.emit('student:heartbeat', <%= student.id %>);},1000);
+socket.on('token:update',t=>document.getElementById('token').textContent=t);
+render();
+</script></body></html>
