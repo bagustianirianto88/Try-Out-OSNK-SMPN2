@@ -1,23 +1,249 @@
-<!doctype html><html><head><title>Ujian CBT</title><link rel="stylesheet" href="/style.css"><script src="/socket.io/socket.io.js"></script></head><body>
-<div class="container">
-  <div class="header"><div>Peserta: <%= student.name %></div><div>Token: <span id="token"><%= token %></span></div><div class="timer" id="timer"></div></div>
-  <div class="layout"><div class="card"><div id="questionArea"></div><div id="optionsArea"></div><div class="footer"><button class="btn" onclick="prevQ()">Soal Sebelumnya</button><label><input type="checkbox" id="doubtBox" onchange="toggleDoubt()"> Ragu-ragu</label><button class="btn" id="nextBtn" onclick="nextQ()">Soal Selanjutnya</button></div></div>
-  <div class="card"><h4>Navigasi</h4><div class="nav-grid" id="navGrid"></div></div></div>
-</div>
-<script>
-const socket = io();
-const qs = <%- JSON.stringify(questions) %>;
-const state = <%- JSON.stringify(state) %>;
-let idx = state.currentQuestion - 1; let answers = state.answers || {}; let doubts = new Set(state.doubts || []); let remaining=state.remaining;
-function render(){const q=qs[idx];document.getElementById('questionArea').innerHTML=`<h3>Soal ${idx+1}</h3>${q.question_html}`;document.getElementById('optionsArea').innerHTML=['A','B','C','D'].map(k=>`<label><input type='radio' name='opt' ${answers[idx+1]===k?'checked':''} onchange="save('${k}')"> ${k}. ${q.options[k]}</label><br>`).join('');document.getElementById('doubtBox').checked=doubts.has(idx+1);document.getElementById('nextBtn').textContent=idx===49?'Selesai':'Soal Selanjutnya';renderNav();}
-function renderNav(){document.getElementById('navGrid').innerHTML=qs.map((_,i)=>`<button class='qbtn ${doubts.has(i+1)?'doubt':(answers[i+1]?'answered':'')}' onclick='go(${i})'>${i+1}</button>`).join('')}
-function go(i){idx=i;render();save();}
-function prevQ(){if(idx>0){idx--;render();save();}}
-function nextQ(){if(idx===49){finish();return;}idx++;render();save();}
-function toggleDoubt(){if(document.getElementById('doubtBox').checked) doubts.add(idx+1); else doubts.delete(idx+1); save(); renderNav();}
-function save(ans){if(ans) answers[idx+1]=ans;fetch('/api/save-answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({questionNumber:idx+1,answer:ans,doubt:doubts.has(idx+1)})});}
-function finish(){fetch('/api/finish',{method:'POST'}).then(r=>r.json()).then(d=>location.href=d.redirect)}
-setInterval(()=>{remaining--;if(remaining<=0){finish()} const m=String(Math.floor(Math.max(remaining,0)/60)).padStart(2,'0'); const s=String(Math.max(remaining,0)%60).padStart(2,'0');document.getElementById('timer').textContent=`${m}:${s}`; socket.emit('student:heartbeat', <%= student.id %>);},1000);
-socket.on('token:update',t=>document.getElementById('token').textContent=t);
-render();
-</script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ujian CBT - ANBK Style</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    .nav-btn { @apply text-sm font-semibold border rounded-md h-10 w-10 transition; }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen">
+  <div class="max-w-7xl mx-auto p-4 lg:p-6">
+    <header class="bg-blue-700 text-white rounded-xl px-4 py-3 shadow mb-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-center">
+        <div>
+          <p class="text-xs text-blue-100">Nama Peserta</p>
+          <p id="studentName" class="font-bold">-</p>
+        </div>
+        <div class="text-center">
+          <p class="text-xs text-blue-100">Token Aktif</p>
+          <p id="activeToken" class="font-bold tracking-widest">-</p>
+        </div>
+        <div class="text-right">
+          <p class="text-xs text-blue-100">Sisa Waktu</p>
+          <p id="timer" class="text-2xl font-extrabold">90:00</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+      <section class="lg:col-span-8 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
+        <div class="flex justify-between items-center mb-4">
+          <h2 id="questionTitle" class="text-lg font-bold text-slate-800">Soal 1</h2>
+          <span id="progressInfo" class="text-sm text-slate-500">0/50 terjawab</span>
+        </div>
+
+        <article id="questionContainer" class="prose max-w-none text-slate-700"></article>
+
+        <div id="optionsContainer" class="mt-5 space-y-2"></div>
+
+        <div class="mt-6 pt-4 border-t border-slate-200 flex flex-wrap gap-3 items-center justify-between">
+          <button id="prevBtn" class="px-4 py-2 rounded-md bg-slate-200 hover:bg-slate-300 text-slate-800 text-sm font-semibold">Soal Sebelumnya</button>
+
+          <label class="inline-flex items-center gap-2 text-sm font-medium text-slate-700">
+            <input id="doubtCheck" type="checkbox" class="h-4 w-4" />
+            Ragu-ragu
+          </label>
+
+          <button id="nextBtn" class="px-4 py-2 rounded-md bg-blue-700 hover:bg-blue-800 text-white text-sm font-semibold">Soal Selanjutnya</button>
+        </div>
+      </section>
+
+      <aside class="lg:col-span-4 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
+        <h3 class="text-base font-bold text-slate-800 mb-3">Navigasi Soal</h3>
+        <div id="navGrid" class="grid grid-cols-5 gap-2"></div>
+        <div class="mt-4 text-xs text-slate-600 space-y-1">
+          <p><span class="inline-block w-3 h-3 border border-slate-400 bg-white mr-2"></span>Belum dijawab</p>
+          <p><span class="inline-block w-3 h-3 bg-blue-600 mr-2"></span>Sudah dijawab</p>
+          <p><span class="inline-block w-3 h-3 bg-yellow-400 mr-2"></span>Ragu-ragu</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    const socket = io();
+    let questions = [];
+    let currentQuestion = 1;
+    let answers = {};
+    let doubts = new Set();
+    let remainingSeconds = 90 * 60;
+    let studentId = null;
+    let timerTick = null;
+
+    const timerEl = document.getElementById('timer');
+    const tokenEl = document.getElementById('activeToken');
+    const nameEl = document.getElementById('studentName');
+    const questionTitleEl = document.getElementById('questionTitle');
+    const questionContainerEl = document.getElementById('questionContainer');
+    const optionsContainerEl = document.getElementById('optionsContainer');
+    const progressInfoEl = document.getElementById('progressInfo');
+    const navGridEl = document.getElementById('navGrid');
+    const doubtCheckEl = document.getElementById('doubtCheck');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function fmt(sec){
+      const s = Math.max(0, sec);
+      const mm = String(Math.floor(s / 60)).padStart(2, '0');
+      const ss = String(s % 60).padStart(2, '0');
+      return `${mm}:${ss}`;
+    }
+
+    function answeredCount(){ return Object.keys(answers).length; }
+
+    function renderNav() {
+      navGridEl.innerHTML = '';
+      for (let i = 1; i <= 50; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = 'h-10 w-10 rounded-md border text-sm font-semibold transition';
+
+        if (doubts.has(i)) {
+          btn.classList.add('bg-yellow-400', 'border-yellow-500', 'text-slate-900');
+        } else if (answers[i]) {
+          btn.classList.add('bg-blue-600', 'border-blue-700', 'text-white');
+        } else {
+          btn.classList.add('bg-white', 'border-slate-300', 'text-slate-700');
+        }
+
+        if (i === currentQuestion) {
+          btn.classList.add('ring-2', 'ring-slate-900/30');
+        }
+
+        btn.addEventListener('click', async () => {
+          currentQuestion = i;
+          renderQuestion();
+          await saveAnswer();
+        });
+        navGridEl.appendChild(btn);
+      }
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQuestion - 1];
+      if (!q) return;
+
+      questionTitleEl.textContent = `Soal ${currentQuestion}`;
+      questionContainerEl.innerHTML = q.question_html;
+      progressInfoEl.textContent = `${answeredCount()}/50 terjawab`;
+      doubtCheckEl.checked = doubts.has(currentQuestion);
+      nextBtn.textContent = currentQuestion === 50 ? 'Selesai' : 'Soal Selanjutnya';
+      prevBtn.disabled = currentQuestion === 1;
+      prevBtn.classList.toggle('opacity-50', currentQuestion === 1);
+
+      optionsContainerEl.innerHTML = '';
+      ['A','B','C','D'].forEach((k) => {
+        const wrapper = document.createElement('label');
+        wrapper.className = 'flex items-start gap-3 p-3 border rounded-md hover:bg-slate-50 cursor-pointer';
+        wrapper.innerHTML = `
+          <input type="radio" name="answer" class="mt-1" value="${k}" ${answers[currentQuestion] === k ? 'checked' : ''} />
+          <span class="text-sm text-slate-700"><strong>${k}.</strong> ${q.options[k]}</span>
+        `;
+        const radio = wrapper.querySelector('input');
+        radio.addEventListener('change', async () => {
+          answers[currentQuestion] = k;
+          progressInfoEl.textContent = `${answeredCount()}/50 terjawab`;
+          renderNav();
+          await saveAnswer(k);
+        });
+        optionsContainerEl.appendChild(wrapper);
+      });
+
+      renderNav();
+    }
+
+    async function saveAnswer(selectedAnswer = null) {
+      try {
+        await fetch('/api/student/answers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            questionNumber: currentQuestion,
+            answer: selectedAnswer,
+            doubt: doubts.has(currentQuestion)
+          })
+        });
+      } catch (e) {
+        console.error('Auto-save gagal', e);
+      }
+    }
+
+    async function loadExamData() {
+      const res = await fetch('/api/student/questions');
+      if (res.status === 401) {
+        window.location.href = '/';
+        return;
+      }
+      const data = await res.json();
+      if (!data.ok) {
+        alert(data.message || 'Gagal memuat data ujian');
+        return;
+      }
+
+      questions = data.questions;
+      currentQuestion = data.currentQuestion || 1;
+      answers = data.answers || {};
+      doubts = new Set(data.doubts || []);
+      remainingSeconds = data.remainingSeconds ?? (90 * 60);
+      tokenEl.textContent = data.token || '-';
+      timerEl.textContent = fmt(remainingSeconds);
+
+      const me = await fetch('/api/student/me').then(r => r.ok ? r.json() : null).catch(() => null);
+      if (me && me.ok) {
+        studentId = me.student.id;
+        nameEl.textContent = me.student.name;
+      }
+
+      renderQuestion();
+      startTimer();
+    }
+
+    function startTimer() {
+      if (timerTick) clearInterval(timerTick);
+      timerTick = setInterval(() => {
+        remainingSeconds -= 1;
+        timerEl.textContent = fmt(remainingSeconds);
+
+        if (studentId) socket.emit('student:heartbeat', studentId);
+
+        if (remainingSeconds <= 0) {
+          clearInterval(timerTick);
+          alert('Waktu ujian habis.');
+          window.location.href = '/';
+        }
+      }, 1000);
+    }
+
+    prevBtn.addEventListener('click', async () => {
+      if (currentQuestion > 1) {
+        currentQuestion -= 1;
+        renderQuestion();
+        await saveAnswer();
+      }
+    });
+
+    nextBtn.addEventListener('click', async () => {
+      if (currentQuestion < 50) {
+        currentQuestion += 1;
+        renderQuestion();
+        await saveAnswer();
+      } else {
+        alert('Anda sudah di soal terakhir. Tahap berikutnya: tombol selesai final submit akan ditambahkan.');
+      }
+    });
+
+    doubtCheckEl.addEventListener('change', async () => {
+      if (doubtCheckEl.checked) doubts.add(currentQuestion);
+      else doubts.delete(currentQuestion);
+      renderNav();
+      await saveAnswer();
+    });
+
+    loadExamData();
+  </script>
+</body>
+</html>

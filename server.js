@@ -123,6 +123,17 @@ function requireStudent(req, res, next) {
   return next();
 }
 
+// ===== Basic pages =====
+
+app.get('/', (_req, res) => {
+  res.render('student-login');
+});
+
+app.get('/test', (req, res) => {
+  if (!req.session.studentId) return res.redirect('/');
+  res.render('test');
+});
+
 // ===== Basic health =====
 app.get('/health', (_req, res) => {
   res.json({ ok: true, message: 'Server aktif', db: DB_PATH, now: new Date().toISOString() });
@@ -172,6 +183,11 @@ app.post('/api/proctor/login', (req, res) => {
   req.session.proctor = true;
   req.session.role = 'proctor';
   return res.json({ ok: true, message: 'Login proktor berhasil' });
+});
+
+app.get('/api/student/me', requireStudent, (req, res) => {
+  const student = db.prepare('SELECT id, name, username FROM students WHERE id = ?').get(req.session.studentId);
+  return res.json({ ok: true, student });
 });
 
 // 3) Mengambil data soal untuk murid (dengan state ujian)
