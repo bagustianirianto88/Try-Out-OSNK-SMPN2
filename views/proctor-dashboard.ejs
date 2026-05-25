@@ -1,0 +1,8 @@
+<!doctype html><html><head><title>Dashboard Proktor</title><link rel="stylesheet" href="/style.css"><script src="/socket.io/socket.io.js"></script></head><body><div class="container"><h2>Dashboard Proktor</h2><p>Token Aktif: <b id="token"><%= token %></b> <button class="btn" onclick="newToken()">Generate Token Baru</button></p><table class="table"><thead><tr><th>Nama</th><th>Username</th><th>Status</th><th>Soal Saat Ini</th><th>Terjawab</th><th>Aksi</th></tr></thead><tbody id="rows"><% students.forEach(s=>{ %><tr id="st-<%= s.id %>"><td><%= s.name %></td><td><%= s.username %></td><td class="<%= s.online?'online':'offline' %>"><%= s.online?'Online':'Offline' %></td><td><%= s.current_question %></td><td><%= s.answered %>/50</td><td><button class="btn" onclick="resetStudent(<%= s.id %>)">Reset</button></td></tr><% }) %></tbody></table></div>
+<script>
+const socket = io();
+function newToken(){fetch('/proktor/generate-token',{method:'POST'}).then(r=>r.json()).then(d=>document.getElementById('token').textContent=d.token)}
+function resetStudent(id){fetch('/proktor/reset/'+id,{method:'POST'})}
+socket.on('token:update',t=>document.getElementById('token').textContent=t);
+socket.on('student:update',s=>{const tr=document.getElementById('st-'+s.id); if(!tr) return; tr.children[2].textContent=s.online?'Online':'Offline'; tr.children[2].className=s.online?'online':'offline'; tr.children[3].textContent=s.current_question; tr.children[4].textContent=s.answered+'/50';});
+</script></body></html>
