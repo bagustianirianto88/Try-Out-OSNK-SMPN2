@@ -1,1 +1,60 @@
-<!doctype html><html><head><title>Login Proktor</title><link rel="stylesheet" href="/style.css"></head><body><div class="container" style="max-width:420px"><h2>Login Proktor</h2><% if(error){ %><p style="color:red"><%= error %></p><% } %><form method="post" action="/proktor/login"><input name="username" placeholder="Username" required><input type="password" name="password" placeholder="Password" required><button class="btn">Masuk</button></form></div></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Proktor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-100">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-white rounded-xl shadow border border-slate-200 p-6">
+      <h1 class="text-xl font-bold text-slate-800">Login Proktor</h1>
+      <p class="text-sm text-slate-500 mb-5">Dashboard Monitoring CBT</p>
+
+      <div id="errorBox" class="hidden mb-4 rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-3 py-2"></div>
+
+      <form id="proctorLoginForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Username</label>
+          <input name="username" required class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Password</label>
+          <input type="password" name="password" required class="w-full border border-slate-300 rounded-md px-3 py-2 text-sm" />
+        </div>
+        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white rounded-md py-2.5 text-sm font-semibold">Masuk Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('proctorLoginForm');
+    const errorBox = document.getElementById('errorBox');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.add('hidden');
+      const payload = { username: form.username.value.trim(), password: form.password.value };
+
+      try {
+        const res = await fetch('/api/proctor/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          errorBox.textContent = data.message || 'Login gagal';
+          errorBox.classList.remove('hidden');
+          return;
+        }
+        window.location.href = '/proktor';
+      } catch {
+        errorBox.textContent = 'Gagal terhubung ke server';
+        errorBox.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

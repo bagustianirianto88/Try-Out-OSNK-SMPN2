@@ -123,6 +123,11 @@ function requireStudent(req, res, next) {
   return next();
 }
 
+function requireProctor(req, res, next) {
+  if (!req.session.proctor) return res.status(401).json({ ok: false, message: 'Unauthorized proctor session' });
+  return next();
+}
+
 // ===== Basic pages =====
 
 app.get('/', (_req, res) => {
@@ -132,6 +137,15 @@ app.get('/', (_req, res) => {
 app.get('/test', (req, res) => {
   if (!req.session.studentId) return res.redirect('/');
   res.render('test');
+});
+
+app.get('/proktor/login', (_req, res) => {
+  res.render('proctor-login');
+});
+
+app.get('/proktor', (req, res) => {
+  if (!req.session.proctor) return res.redirect('/proktor/login');
+  res.render('proctor-dashboard', { token: getActiveToken() });
 });
 
 // ===== Basic health =====
@@ -242,6 +256,31 @@ app.post('/api/student/answers', requireStudent, (req, res) => {
     answered: Object.keys(answers).length,
     total: 50
   });
+});
+
+
+app.post('/api/proctor/token/generate', requireProctor, (req, res) => {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let token = '';
+  for (let i = 0; i < 6; i += 1) token += chars[Math.floor(Math.random() * chars.length)];
+
+  db.prepare('UPDATE proctor_state SET active_token = ?, updated_at = ? WHERE id = 1').run(token, Date.now());
+  io.emit('token:update', token);
+  return res.json({ ok: true, token });
+});
+
+app.post('/api/proctor/students/:studentId/reset', requireProctor, (req, res) => {
+  const studentId = Number(req.params.studentId);
+  if (!studentId) return res.status(400).json({ ok: false, message: 'studentId tidak valid' });
+
+  db.prepare(`
+    UPDATE sessions
+    SET start_time = NULL, current_question = 1, answers_json = '{}', doubts_json = '[]', finished = 0, online = 0, last_seen = NULL
+    WHERE student_id = ?
+  `).run(studentId);
+
+  emitStudentStatus(studentId);
+  return res.json({ ok: true, message: 'Sesi murid berhasil direset' });
 });
 
 // Socket.io realtime event untuk status monitor proktor
