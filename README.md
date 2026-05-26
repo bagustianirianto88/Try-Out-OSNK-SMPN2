@@ -42,3 +42,9 @@ Health check:
   - `citra01 / 12345`
   - `dimas01 / 12345`
   - `eka01 / 12345`
+
+
+## URL Akses
+- Login Murid: `http://localhost:3000/`
+- Login Proktor: `http://localhost:3000/proktor/login`
+- Dashboard Proktor (setelah login): `http://localhost:3000/proktor`
