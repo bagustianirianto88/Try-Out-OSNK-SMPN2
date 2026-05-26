@@ -86,3 +86,53 @@ Health check:
     ]
   }
   ```
+
+## Kelola Data Murid (Ganti Nama/Password/Tambah Murid)
+Fitur ini menggunakan endpoint proktor, jadi **harus login proktor dulu** (`POST /api/proctor/login`).
+
+### 1) Lihat daftar murid
+- `GET /api/proctor/students`
+
+### 2) Tambah murid baru
+- `POST /api/proctor/students`
+- Body JSON:
+```json
+{
+  "name": "Nama Murid Baru",
+  "username": "userbaru01",
+  "password": "12345"
+}
+```
+
+### 3) Ganti nama dan/atau password murid
+- `PATCH /api/proctor/students/:studentId`
+- Contoh ganti nama saja:
+```json
+{ "name": "Nama Baru" }
+```
+- Contoh ganti password saja:
+```json
+{ "password": "passwordBaru" }
+```
+- Contoh ganti keduanya:
+```json
+{ "name": "Nama Baru", "password": "passwordBaru" }
+```
+
+### Contoh cepat pakai curl
+```bash
+# login proktor (simpan cookie session)
+curl -c cookie.txt -X POST http://localhost:3000/api/proctor/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"bayu","password":"admin"}'
+
+# tambah murid
+curl -b cookie.txt -X POST http://localhost:3000/api/proctor/students \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Siti Aulia","username":"siti01","password":"12345"}'
+
+# ubah nama/password murid id=3
+curl -b cookie.txt -X PATCH http://localhost:3000/api/proctor/students/3 \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Citra Nabila Putri","password":"67890"}'
+```

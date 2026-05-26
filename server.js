@@ -347,6 +347,49 @@ app.post('/api/proctor/token/generate', requireProctor, (req, res) => {
   return res.json({ ok: true, token });
 });
 
+
+app.get('/api/proctor/students', requireProctor, (_req, res) => {
+  const rows = db.prepare('SELECT id, name, username FROM students ORDER BY name').all();
+  return res.json({ ok: true, students: rows });
+});
+
+app.post('/api/proctor/students', requireProctor, (req, res) => {
+  const { name, username, password } = req.body;
+  if (!name || !username || !password) {
+    return res.status(400).json({ ok: false, message: 'name, username, password wajib diisi' });
+  }
+
+  try {
+    const info = db.prepare('INSERT INTO students (name, username, password) VALUES (?, ?, ?)').run(name.trim(), username.trim(), password);
+    db.prepare('INSERT OR IGNORE INTO sessions (student_id) VALUES (?)').run(info.lastInsertRowid);
+    emitStudentStatus(Number(info.lastInsertRowid));
+    return res.json({ ok: true, message: 'Murid berhasil ditambahkan', studentId: Number(info.lastInsertRowid) });
+  } catch (err) {
+    return res.status(400).json({ ok: false, message: err.message.includes('UNIQUE') ? 'Username sudah dipakai' : err.message });
+  }
+});
+
+app.patch('/api/proctor/students/:studentId', requireProctor, (req, res) => {
+  const studentId = Number(req.params.studentId);
+  const { name, password } = req.body;
+  if (!studentId) return res.status(400).json({ ok: false, message: 'studentId tidak valid' });
+  if (!name && !password) return res.status(400).json({ ok: false, message: 'Isi minimal name atau password' });
+
+  const current = db.prepare('SELECT id FROM students WHERE id = ?').get(studentId);
+  if (!current) return res.status(404).json({ ok: false, message: 'Murid tidak ditemukan' });
+
+  if (name && password) {
+    db.prepare('UPDATE students SET name = ?, password = ? WHERE id = ?').run(name.trim(), password, studentId);
+  } else if (name) {
+    db.prepare('UPDATE students SET name = ? WHERE id = ?').run(name.trim(), studentId);
+  } else {
+    db.prepare('UPDATE students SET password = ? WHERE id = ?').run(password, studentId);
+  }
+
+  emitStudentStatus(studentId);
+  return res.json({ ok: true, message: 'Data murid berhasil diperbarui' });
+});
+
 app.post('/api/proctor/students/:studentId/reset', requireProctor, (req, res) => {
   const studentId = Number(req.params.studentId);
   if (!studentId) return res.status(400).json({ ok: false, message: 'studentId tidak valid' });
