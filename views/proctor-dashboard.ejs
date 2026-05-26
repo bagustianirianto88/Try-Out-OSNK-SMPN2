@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Proktor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+  <div class="max-w-7xl mx-auto p-4 lg:p-6">
+    <header class="bg-blue-700 text-white rounded-xl px-4 py-4 shadow mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h1 class="text-xl font-bold">Dashboard Proktor</h1>
+        <p class="text-sm text-blue-100">Live Monitoring Peserta CBT</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-right">
+          <p class="text-xs text-blue-100">Token Aktif</p>
+          <p id="activeToken" class="font-extrabold tracking-[0.2em] text-lg"><%= token %></p>
+        </div>
+        <button id="generateTokenBtn" class="bg-white text-blue-700 hover:bg-blue-50 rounded-md px-4 py-2 text-sm font-semibold">
+          Generate Token 6 Digit
+        </button>
+      </div>
+    </header>
+
+    <section class="bg-white border border-slate-200 rounded-xl shadow-sm p-4 overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead>
+          <tr class="bg-slate-100 text-slate-700">
+            <th class="text-left p-3 border">Nama</th>
+            <th class="text-left p-3 border">Username</th>
+            <th class="text-left p-3 border">Status</th>
+            <th class="text-left p-3 border">Posisi Soal</th>
+            <th class="text-left p-3 border">Progres</th>
+            <th class="text-left p-3 border">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="monitorBody"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    const socket = io();
+    const activeTokenEl = document.getElementById('activeToken');
+    const monitorBody = document.getElementById('monitorBody');
+    const generateTokenBtn = document.getElementById('generateTokenBtn');
+
+    const byId = new Map();
+
+    function statusBadge(online) {
+      return online
+        ? '<span class="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-100 text-green-700">Online</span>'
+        : '<span class="inline-flex items-center px-2 py-1 rounded-full text-xs bg-slate-200 text-slate-700">Offline</span>';
+    }
+
+    function rowTemplate(s) {
+      return `
+        <tr id="st-${s.id}" class="hover:bg-slate-50">
+          <td class="p-3 border">${s.name}</td>
+          <td class="p-3 border">${s.username}</td>
+          <td class="p-3 border">${statusBadge(s.online)}</td>
+          <td class="p-3 border">${s.currentQuestion || 1}</td>
+          <td class="p-3 border">${s.answered || 0}/${s.total || 50}</td>
+          <td class="p-3 border">
+            <button data-id="${s.id}" class="reset-btn bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded text-xs font-semibold">Reset</button>
+          </td>
+        </tr>
+      `;
+    }
+
+    function renderAll() {
+      const rows = Array.from(byId.values()).sort((a, b) => a.name.localeCompare(b.name));
+      monitorBody.innerHTML = rows.map(rowTemplate).join('');
+      bindResetButtons();
+    }
+
+    function upsertStudentStatus(status) {
+      byId.set(status.id, status);
+      const existing = document.getElementById(`st-${status.id}`);
+      if (!existing) {
+        renderAll();
+        return;
+      }
+      existing.children[2].innerHTML = statusBadge(status.online);
+      existing.children[3].textContent = status.currentQuestion || 1;
+      existing.children[4].textContent = `${status.answered || 0}/${status.total || 50}`;
+    }
+
+    function bindResetButtons() {
+      document.querySelectorAll('.reset-btn').forEach((btn) => {
+        btn.onclick = async () => {
+          const studentId = Number(btn.dataset.id);
+          if (!confirm('Reset sesi murid ini? Timer & jawaban tersimpan akan dihapus agar bisa login ulang dari awal.')) return;
+
+          btn.disabled = true;
+          try {
+            const res = await fetch(`/api/proctor/students/${studentId}/reset`, { method: 'POST' });
+            const data = await res.json();
+            if (!res.ok || !data.ok) {
+              alert(data.message || 'Reset gagal');
+            }
+          } catch {
+            alert('Gagal terhubung ke server');
+          } finally {
+            btn.disabled = false;
+          }
+        };
+      });
+    }
+
+    generateTokenBtn.addEventListener('click', async () => {
+      generateTokenBtn.disabled = true;
+      try {
+        const res = await fetch('/api/proctor/token/generate', { method: 'POST' });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          alert(data.message || 'Gagal generate token');
+          return;
+        }
+        activeTokenEl.textContent = data.token;
+      } catch {
+        alert('Gagal terhubung ke server');
+      } finally {
+        generateTokenBtn.disabled = false;
+      }
+    });
+
+    socket.on('token:update', (token) => {
+      activeTokenEl.textContent = token;
+    });
+
+    socket.on('proctor:initial-status', (rows) => {
+      rows.forEach((r) => byId.set(r.id, r));
+      renderAll();
+    });
+
+    socket.on('proctor:student-status', (status) => {
+      upsertStudentStatus(status);
+    });
+
+    socket.emit('proctor:request-initial-status');
+  </script>
+</body>
+</html>
