@@ -100,7 +100,15 @@ function getStudentMonitorRow(studentId) {
     WHERE s.id = ?
   `).get(studentId);
 
-  const answered = Object.keys(JSON.parse(row.answers_json || '{}')).length;
+  const answersMap = JSON.parse(row.answers_json || '{}');
+  const answered = Object.keys(answersMap).length;
+  let benar = 0;
+  for (const q of questions) {
+    const ans = answersMap[String(q.id)] || answersMap[q.id];
+    if (ans && ans === q.answer_key) benar += 1;
+  }
+  const nilai = Math.round((benar / 50) * 100);
+
   return {
     id: row.id,
     name: row.name,
@@ -109,6 +117,8 @@ function getStudentMonitorRow(studentId) {
     currentQuestion: row.current_question,
     answered,
     total: 50,
+    benar,
+    nilai,
     finished: Boolean(row.finished),
     lastSeen: row.last_seen
   };
@@ -170,6 +180,9 @@ app.post('/api/student/login', (req, res) => {
   if (!student) return res.status(401).json({ ok: false, message: 'Username/password salah' });
 
   const studentSession = db.prepare('SELECT * FROM sessions WHERE student_id = ?').get(student.id);
+  if (studentSession.finished) {
+    return res.status(403).json({ ok: false, message: 'Ujian sudah selesai. Anda tidak dapat login kembali.' });
+  }
   if (!studentSession.start_time) {
     db.prepare('UPDATE sessions SET start_time = ?, online = 1, last_seen = ? WHERE student_id = ?').run(Date.now(), Date.now(), student.id);
   } else {

@@ -34,6 +34,7 @@
             <th class="text-left p-3 border">Status</th>
             <th class="text-left p-3 border">Posisi Soal</th>
             <th class="text-left p-3 border">Progres</th>
+            <th class="text-left p-3 border">Nilai</th>
             <th class="text-left p-3 border">Aksi</th>
           </tr>
         </thead>
@@ -64,6 +65,7 @@
           <td class="p-3 border">${statusBadge(s.online)}</td>
           <td class="p-3 border">${s.currentQuestion || 1}</td>
           <td class="p-3 border">${s.answered || 0}/${s.total || 50}</td>
+          <td class="p-3 border font-semibold">${s.nilai ?? 0}</td>
           <td class="p-3 border">
             <button data-id="${s.id}" class="reset-btn bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded text-xs font-semibold">Reset</button>
           </td>
@@ -87,6 +89,7 @@
       existing.children[2].innerHTML = statusBadge(status.online);
       existing.children[3].textContent = status.currentQuestion || 1;
       existing.children[4].textContent = `${status.answered || 0}/${status.total || 50}`;
+      existing.children[5].textContent = `${status.nilai ?? 0}`;
     }
 
     function bindResetButtons() {
