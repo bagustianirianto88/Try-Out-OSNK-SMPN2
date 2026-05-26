@@ -104,9 +104,10 @@ function getStudentMonitorRow(studentId) {
   const answered = Object.keys(answersMap).length;
   let benar = 0;
   for (const q of questions) {
-    const ans = answersMap[String(q.id)] || answersMap[q.id];
+    const ans = answersMap[String(q.id)] || answersMap[q.id] || answersMap[String(q.question_no)] || answersMap[q.question_no];
     if (ans && ans === q.answer_key) benar += 1;
   }
+  const salah = Math.max(0, answered - benar);
   const nilai = Math.round((benar / 50) * 100);
 
   return {
@@ -118,6 +119,7 @@ function getStudentMonitorRow(studentId) {
     answered,
     total: 50,
     benar,
+    salah,
     nilai,
     finished: Boolean(row.finished),
     lastSeen: row.last_seen
@@ -364,6 +366,22 @@ app.post('/api/proctor/students', requireProctor, (req, res) => {
     db.prepare('INSERT OR IGNORE INTO sessions (student_id) VALUES (?)').run(info.lastInsertRowid);
     emitStudentStatus(Number(info.lastInsertRowid));
     return res.json({ ok: true, message: 'Murid berhasil ditambahkan', studentId: Number(info.lastInsertRowid) });
+  } catch (err) {
+    return res.status(400).json({ ok: false, message: err.message.includes('UNIQUE') ? 'Username sudah dipakai' : err.message });
+  }
+});
+
+
+app.put('/api/proctor/students/:studentId/account', requireProctor, (req, res) => {
+  const studentId = Number(req.params.studentId);
+  const { name, username, password } = req.body;
+  if (!studentId) return res.status(400).json({ ok: false, message: 'studentId tidak valid' });
+  if (!name || !username || !password) return res.status(400).json({ ok: false, message: 'name, username, password wajib diisi' });
+
+  try {
+    db.prepare('UPDATE students SET name = ?, username = ?, password = ? WHERE id = ?').run(name.trim(), username.trim(), password, studentId);
+    emitStudentStatus(studentId);
+    return res.json({ ok: true, message: 'Akun murid berhasil diperbarui' });
   } catch (err) {
     return res.status(400).json({ ok: false, message: err.message.includes('UNIQUE') ? 'Username sudah dipakai' : err.message });
   }

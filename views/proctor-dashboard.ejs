@@ -34,7 +34,10 @@
             <th class="text-left p-3 border">Status</th>
             <th class="text-left p-3 border">Posisi Soal</th>
             <th class="text-left p-3 border">Progres</th>
+            <th class="text-left p-3 border">Jumlah Benar</th>
+            <th class="text-left p-3 border">Jumlah Salah</th>
             <th class="text-left p-3 border">Nilai</th>
+            <th class="text-left p-3 border">Status Ujian</th>
             <th class="text-left p-3 border">Aksi</th>
           </tr>
         </thead>
@@ -50,6 +53,7 @@
     const generateTokenBtn = document.getElementById('generateTokenBtn');
 
     const byId = new Map();
+const accountById = new Map();
 
     function statusBadge(online) {
       return online
@@ -65,8 +69,12 @@
           <td class="p-3 border">${statusBadge(s.online)}</td>
           <td class="p-3 border">${s.currentQuestion || 1}</td>
           <td class="p-3 border">${s.answered || 0}/${s.total || 50}</td>
+          <td class="p-3 border">${s.benar ?? 0}</td>
+          <td class="p-3 border">${s.salah ?? 0}</td>
           <td class="p-3 border font-semibold">${s.nilai ?? 0}</td>
+          <td class="p-3 border">${s.finished ? "Selesai" : "Belum Selesai"}</td>
           <td class="p-3 border">
+            <button data-id="${s.id}" class="edit-btn bg-amber-500 hover:bg-amber-600 text-white px-3 py-1.5 rounded text-xs font-semibold mr-1">Edit</button>
             <button data-id="${s.id}" class="reset-btn bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded text-xs font-semibold">Reset</button>
           </td>
         </tr>
@@ -89,10 +97,37 @@
       existing.children[2].innerHTML = statusBadge(status.online);
       existing.children[3].textContent = status.currentQuestion || 1;
       existing.children[4].textContent = `${status.answered || 0}/${status.total || 50}`;
-      existing.children[5].textContent = `${status.nilai ?? 0}`;
+      existing.children[5].textContent = `${status.benar ?? 0}`;
+      existing.children[6].textContent = `${status.salah ?? 0}`;
+      existing.children[7].textContent = `${status.nilai ?? 0}`;
+      existing.children[8].textContent = status.finished ? "Selesai" : "Belum Selesai";
     }
 
+    async function loadAccounts(){
+  try {
+    const res = await fetch('/api/proctor/students');
+    const data = await res.json();
+    if (res.ok && data.ok) { data.students.forEach(s=>accountById.set(s.id,s)); }
+  } catch {}
+}
+
     function bindResetButtons() {
+      document.querySelectorAll('.edit-btn').forEach((btn)=>{
+        btn.onclick = async ()=>{
+          const studentId = Number(btn.dataset.id);
+          const acc = accountById.get(studentId) || {};
+          const name = prompt('Nama murid:', acc.name || ''); if (name===null) return;
+          const username = prompt('Username murid:', acc.username || ''); if (username===null) return;
+          const password = prompt('Password murid baru:', ''); if (password===null || password==='') return alert('Password wajib diisi');
+          const res = await fetch(`/api/proctor/students/${studentId}/account`, {method:'PUT', headers:{'Content-Type':'application/json'}, body: JSON.stringify({name, username, password})});
+          const data = await res.json();
+          if (!res.ok || !data.ok) return alert(data.message || 'Gagal update');
+          accountById.set(studentId,{id:studentId,name,username});
+          const tr = document.getElementById(`st-${studentId}`); if (tr){ tr.children[0].textContent=name; tr.children[1].textContent=username; }
+          alert('Data akun murid berhasil diperbarui');
+        };
+      });
+
       document.querySelectorAll('.reset-btn').forEach((btn) => {
         btn.onclick = async () => {
           const studentId = Number(btn.dataset.id);
@@ -144,6 +179,7 @@
       upsertStudentStatus(status);
     });
 
+    loadAccounts();
     socket.emit('proctor:request-initial-status');
   </script>
 </body>

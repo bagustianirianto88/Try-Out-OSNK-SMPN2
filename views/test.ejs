@@ -9,6 +9,8 @@
   <style>
     .nav-btn { @apply text-sm font-semibold border rounded-md h-10 w-10 transition; }
   </style>
+  <script>window.MathJax = { tex: { inlineMath: [["$","$"],["\(","\)"]] } };</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body class="bg-slate-100 min-h-screen">
   <div class="max-w-7xl mx-auto p-4 lg:p-6">
@@ -129,6 +131,7 @@
 
       questionTitleEl.textContent = `Soal ${currentQuestion}`;
       questionContainerEl.innerHTML = q.question_html;
+      if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([questionContainerEl]).catch(() => {}); }
       progressInfoEl.textContent = `${answeredCount()}/50 terjawab`;
       doubtCheckEl.checked = doubts.has(currentQuestion);
       nextBtn.textContent = currentQuestion === 50 ? 'Selesai' : 'Soal Selanjutnya';
