@@ -259,6 +259,71 @@ app.post('/api/student/answers', requireStudent, (req, res) => {
 });
 
 
+
+app.post('/api/student/finish', requireStudent, (req, res) => {
+  db.prepare('UPDATE sessions SET finished = 1, online = 0, last_seen = ? WHERE student_id = ?').run(Date.now(), req.session.studentId);
+  emitStudentStatus(req.session.studentId);
+  req.session.studentId = null;
+  req.session.role = null;
+  return res.json({ ok: true, message: 'Ujian selesai', redirect: '/finished' });
+});
+
+app.get('/finished', (_req, res) => {
+  res.render('finished');
+});
+
+app.post('/api/proctor/questions/import-json', requireProctor, (req, res) => {
+  const payload = req.body.questions;
+  if (!Array.isArray(payload) || payload.length !== 50) {
+    return res.status(400).json({ ok: false, message: 'Harus kirim 50 soal pada field questions' });
+  }
+
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      question_no INTEGER NOT NULL UNIQUE,
+      topic TEXT NOT NULL,
+      question_html TEXT NOT NULL,
+      option_a TEXT NOT NULL,
+      option_b TEXT NOT NULL,
+      option_c TEXT NOT NULL,
+      option_d TEXT NOT NULL,
+      answer_key TEXT NOT NULL CHECK(answer_key IN ('A','B','C','D'))
+    );
+  `);
+
+  const insert = db.prepare(`
+    INSERT INTO questions (
+      question_no, topic, question_html, option_a, option_b, option_c, option_d, answer_key
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    ON CONFLICT(question_no) DO UPDATE SET
+      topic=excluded.topic,
+      question_html=excluded.question_html,
+      option_a=excluded.option_a,
+      option_b=excluded.option_b,
+      option_c=excluded.option_c,
+      option_d=excluded.option_d,
+      answer_key=excluded.answer_key
+  `);
+
+  const tx = db.transaction(() => {
+    for (const q of payload) {
+      if (!q.question_no || !q.topic || !q.question_html || !q.option_a || !q.option_b || !q.option_c || !q.option_d || !['A', 'B', 'C', 'D'].includes(q.answer_key)) {
+        throw new Error(`Format soal tidak valid di nomor ${q.question_no || 'unknown'}`);
+      }
+      insert.run(q.question_no, q.topic, q.question_html, q.option_a, q.option_b, q.option_c, q.option_d, q.answer_key);
+    }
+  });
+
+  try {
+    tx();
+  } catch (err) {
+    return res.status(400).json({ ok: false, message: err.message });
+  }
+
+  return res.json({ ok: true, message: 'Import soal berhasil', total: payload.length });
+});
+
 app.post('/api/proctor/token/generate', requireProctor, (req, res) => {
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let token = '';

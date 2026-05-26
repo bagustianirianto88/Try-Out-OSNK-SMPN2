@@ -175,7 +175,7 @@
     async function loadExamData() {
       const res = await fetch('/api/student/questions');
       if (res.status === 401) {
-        window.location.href = '/';
+        finishExam();
         return;
       }
       const data = await res.json();
@@ -213,7 +213,7 @@
         if (remainingSeconds <= 0) {
           clearInterval(timerTick);
           alert('Waktu ujian habis.');
-          window.location.href = '/';
+          finishExam();
         }
       }, 1000);
     }
@@ -232,7 +232,9 @@
         renderQuestion();
         await saveAnswer();
       } else {
-        alert('Anda sudah di soal terakhir. Tahap berikutnya: tombol selesai final submit akan ditambahkan.');
+        const ok = confirm('Anda berada di soal terakhir. Selesaikan ujian sekarang?');
+        if (!ok) return;
+        await finishExam();
       }
     });
 
@@ -242,6 +244,20 @@
       renderNav();
       await saveAnswer();
     });
+
+    async function finishExam() {
+      try {
+        const res = await fetch('/api/student/finish', { method: 'POST' });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          alert(data.message || 'Gagal menyelesaikan ujian');
+          return;
+        }
+        window.location.href = data.redirect || '/finished';
+      } catch {
+        alert('Gagal submit ujian. Coba lagi.');
+      }
+    }
 
     loadExamData();
   </script>
